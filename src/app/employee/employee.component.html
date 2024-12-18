@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+<div class="employee-form">
+<h2>Add Employee</h2>
+<form (ngSubmit)="addEmployee()">
+<label for="id">ID:</label>
+<input type="number" [(ngModel)]="newEmployee.id" name="id"
+
+required />  <br>
+
+<label for="name">Name:</label>
+<input type="text" [(ngModel)]="newEmployee.name" name="name"required />  <br>
+
+<label for="salary">Salary:</label>
+<input type="number" [(ngModel)]="newEmployee.salary"  name="salary" required />  <br>
+
+<label for="fieldOfWork">Field of Work:</label>
+<input type="text" [(ngModel)]="newEmployee.fieldOfWork" name="fieldOfWork" required /> <br>
+
+<button type="submit">Add Employee</button>
+</form>
+</div>
+<div class="employee-list">
+<h2>Employee List</h2>
+<ul>
+<li *ngFor="let employee of employees">
+<span>{{ employee.id }} - {{ employee.name }} - {{
+employee.salary }} - {{ employee.fieldOfWork }}</span>
+
+<button (click)="deleteEmployee(employee.id)">Delete</button>
+</li>
+</ul>
+</div>
+</body>
+</html>
